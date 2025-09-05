@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackor[n] - Global Cybersecurity Initiative</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Monaco, 'Lucida Console', monospace;
+            background-color: #000000;
+            color: #00ff00;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Terminal glow effects */
+        .glow {
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+        }
+
+        .amber-glow {
+            color: #ffb000;
+            text-shadow: 0 0 5px #ffb000, 0 0 10px #ffb000;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #00ff00, #ffb000);
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Main content */
+        .main-content {
+            display: grid;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 0.5rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Buttons and links */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ff00, #ffb000);
+            color: #000000;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px rgba(0, 255, 0, 0.5);
+        }
+
+        .social-links {
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            color: #ffb000;
+            text-decoration: none;
+            margin-right: 2rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .social-link::before {
+            content: "> ";
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #00ff00;
+            margin-top: auto;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            }
+            .footer-link {
+                color: #00ff00;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .footer-link:hover {
+                color: #ffb000;
+                text-shadow: 0 0 5px #ffb000;
+        }
+
+        /* Terminal cursor animation */
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .social-link {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .logo-placeholder {
+                width: 80px;
+                height: 80px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-placeholder">
+                            <img src="logo.png" alt="Hackor[n] Logo" style="width: 80%; height: 80%; object-fit: contain;" />
+            </div>
+            <h1 class="title glow">Hackor[n]</h1>
+            <p class="tagline amber-glow">A global cybersecurity initiative</p>
+            <p class="subtitle">by SecPen Labs<span class="cursor">_</span></p>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="glow">About Hackor[n]</h2>
+                <p>
+                    Hackor[n] is a cutting-edge cybersecurity initiative designed to foster learning, 
+                    innovation, and competition in the digital security landscape. We bring together 
+                    ethical hackers, security researchers, and cybersecurity enthusiasts from around 
+                    the globe to collaborate, share knowledge, and push the boundaries of what's possible 
+                    in defensive and offensive security.
+                </p>
+                <p>
+                    Our platform serves as a hub for continuous learning through hands-on challenges, 
+                    real-world scenarios, and community-driven content. Whether you're a beginner 
+                    looking to break into cybersecurity or a seasoned professional seeking to sharpen 
+                    your skills, Hackor[n] provides the tools and environment you need to excel.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="glow">Access Platform</h2>
+                <p>
+                    Ready to dive into the world of ethical hacking and cybersecurity challenges? 
+                    Join our community and start your journey today.
+                </p>
+                <a href="#" class="cta-button">Enter CTF Platform</a>
+                    <!-- Modal Popup -->
+                    <div id="ctfModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
+                        <div style="background:#111; border:2px solid #00ff00; border-radius:10px; padding:2rem 2.5rem; color:#00ff00; box-shadow:0 0 30px #00ff00; text-align:center; max-width:90vw;">
+                            <h2 style="margin-bottom:1rem;">CTF Event Not Started</h2>
+                            <p style="margin-bottom:2rem;">The CTF platform will be available once the event begins.<br>Please check back soon!</p>
+                                <div id="ctfCountdown" style="font-size:1.3rem; margin-bottom:2rem;"></div>
+                            <button id="closeCtfModal" style="background:linear-gradient(45deg,#00ff00,#ffb000); color:#000; border:none; border-radius:6px; padding:0.7rem 1.5rem; font-weight:bold; font-size:1rem; cursor:pointer;">Close</button>
+                        </div>
+                    </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/HackornIN/" class="social-link">GitHub</a>
+                    <a href="https://www.linkedin.com/showcase/hackorn/" class="social-link">LinkedIn</a>
+                    <a href="https://discord.gg/6JzbepjXFJ" class="social-link">Discord</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Hackor[n] & <a href="https://secpen.org/" class="footer-link"> SecPen Labs</a>. All rights reserved. | Secure. Learn. Evolve.</p>
+    </footer>
+    </body>
+    <script>
+    // CTF Modal logic
+    document.addEventListener('DOMContentLoaded', function() {
+        var ctfBtn = document.querySelector('.cta-button');
+        var modal = document.getElementById('ctfModal');
+        var closeBtn = document.getElementById('closeCtfModal');
+        if (ctfBtn && modal && closeBtn) {
+            ctfBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            // Optional: close modal on outside click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    });
+    </script>
+    <script>
+    // Countdown Timer Logic
+    function startCountdown(targetDate) {
+        var countdownEl = document.getElementById('ctfCountdown');
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var distance = targetDate - now;
+            if (distance < 0) {
+                countdownEl.textContent = "The event has started!";
+                return;
+            }
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownEl.textContent = `Event starts in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        updateCountdown();
+        var interval = setInterval(updateCountdown, 1000);
+        // Stop interval if event started
+        setTimeout(function() { clearInterval(interval); }, targetDate - new Date().getTime() + 2000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var ctfBtn = document.querySelector('.cta-button');
+        var modal = document.getElementById('ctfModal');
+        var closeBtn = document.getElementById('closeCtfModal');
+        var countdownEl = document.getElementById('ctfCountdown');
+        if (ctfBtn && modal && closeBtn) {
+            ctfBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                // Set your event start date/time here (YYYY-MM-DDTHH:MM:SSZ)
+                var eventDate = new Date('2025-09-25T00:00:00Z').getTime(); // Example: Sept 10, 2025 18:00 UTC
+                if (countdownEl) startCountdown(eventDate);
+            });
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>
