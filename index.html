@@ -513,7 +513,8 @@
             <div>
                 To register, please fill the interest form.<br>
                 Credentials will be rolled out before the event.<br>
-                <b>No direct registrations from or via CTFd platform are allowed to fight SPAM.</b>
+                <b>No direct registrations from or via CTFd platform are allowed to fight SPAM.</b><br>
+                For any queries, say 'Hi' at <a href="https://discord.gg/jrDSAkpXSz" target="_blank" rel="noopener" style="color:#ffb000;">Discord</a>.
             </div>
             <button id="openInterestForm" class="reg-btn">Fill Interest Form</button>
         </div>
@@ -587,7 +588,8 @@
                     Join our community and start your journey today.
                 </p>
                 <a href="#" class="cta-button">Enter CTF Platform</a>
-                <!-- Modal Popup -->
+                <!-- Modal Popup (commented as event is about to start) -->
+                <!--
                 <div id="ctfModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
                     <div style="background:#111; border:2px solid #00ff00; border-radius:10px; padding:2rem 2.5rem; color:#00ff00; box-shadow:0 0 30px #00ff00; text-align:center; max-width:90vw;">
                         <h2 style="margin-bottom:1rem;">CTF Event Not Started</h2>
@@ -596,7 +598,15 @@
                         <button id="closeCtfModal" style="background:linear-gradient(45deg,#00ff00,#ffb000); color:#000; border:none; border-radius:6px; padding:0.7rem 1.5rem; font-weight:bold; font-size:1rem; cursor:pointer;">Close</button>
                     </div>
                 </div>
-            
+                -->
+                <!-- New redirect popup -->
+                <div id="redirectModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
+                    <div style="background:#111; border:2px solid #00ff00; border-radius:10px; padding:2rem 2.5rem; color:#00ff00; box-shadow:0 0 30px #00ff00; text-align:center; max-width:90vw;">
+                        <h2 style="margin-bottom:1rem;">Taking you to the platform...</h2>
+                        <div id="redirectCounter" style="font-size:1.3rem; margin-bottom:2rem;">3</div>
+                        <p>If you are not redirected, <a href="https://hackornctf.secpen.org" target="_blank" rel="noopener" style="color:#ffb000;">click here</a>.</p>
+                    </div>
+                </div>
                 <div class="social-links">
                     <a href="https://github.com/HackornIN/" class="social-link" target="_blank" rel="noopener">GitHub</a>
                     <a href="https://www.linkedin.com/showcase/hackorn/" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
@@ -753,6 +763,30 @@
                 if (e.target === modal) {
                     modal.style.display = 'none';
                 }
+            });
+        }
+    });
+    </script>
+    <script>
+    // Access Platform redirect popup logic
+    document.addEventListener('DOMContentLoaded', function() {
+        var ctfBtn = document.querySelector('.cta-button');
+        var redirectModal = document.getElementById('redirectModal');
+        var redirectCounter = document.getElementById('redirectCounter');
+        if (ctfBtn && redirectModal && redirectCounter) {
+            ctfBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                redirectModal.style.display = 'flex';
+                let count = 3;
+                redirectCounter.textContent = count;
+                var interval = setInterval(function() {
+                    count--;
+                    redirectCounter.textContent = count;
+                    if (count === 0) {
+                        clearInterval(interval);
+                        window.location.href = "https://hackornctf.secpen.org";
+                    }
+                }, 1000);
             });
         }
     });
