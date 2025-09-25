@@ -511,12 +511,11 @@
             </div>
             <h3>Registration Notice</h3>
             <div>
-                To register, please fill the interest form.<br>
-                Credentials will be rolled out before the event.<br>
-                <b>No direct registrations from or via CTFd platform are allowed to fight SPAM.</b><br>
+                <b>Thank you for participating!</b><br>
+                Registrations are now closed.<br>
                 For any queries, say 'Hi' at <a href="https://discord.gg/jrDSAkpXSz" target="_blank" rel="noopener" style="color:#ffb000;">Discord</a>.
             </div>
-            <button id="openInterestForm" class="reg-btn">Fill Interest Form</button>
+            <button id="openInterestForm" class="reg-btn" disabled style="opacity:0.6; cursor:not-allowed;">Fill Interest Form</button>
         </div>
 
         <!-- Custom Interest Form Modal -->
@@ -791,5 +790,16 @@
         }
     });
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var openBtn = document.getElementById('openInterestForm');
+    if (openBtn) {
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert("You're late! Registration is closed. Next time, set your alarm to hacker time! 😜");
+        });
+    }
+});
+</script>
 </body>
 </html>
